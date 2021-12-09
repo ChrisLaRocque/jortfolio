@@ -19,6 +19,10 @@
                   </div>
                 </div>
             </div> 
+            <div class="box" v-if="project.fields.githubLink">
+                <small style="display: block;">Github for project</small>
+                <a :href="project.fields.githubLink"><Icon name="Github" /></a>
+            </div> 
             <div class="box" v-if="project.fields.relatedProjects">
               <small style="display: block;">Related projects</small>
               <NuxtLink v-for="relatedProject in project.fields.relatedProjects" style="display: block;" :key="relatedProject.fields.slug" :to="relatedProject.fields.slug">{{relatedProject.fields.title}}</NuxtLink>
