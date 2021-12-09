@@ -33,5 +33,10 @@ export default {
   ],
   markdownit: {
     runtime: true // Support `$md()`
+  },
+  target: 'static',
+  ssr: false,
+  generate: {
+    fallback: true
   }
 }
