@@ -73,9 +73,7 @@ if (process.client) {
 <style lang="scss">
     .navbar {
         .navbar-brand {
-            .navbar-item {
-                font-family: 'Knewave', script;
-            }
+
             .navbar-burger {
                 height: 5rem;
                 width: 5rem;
