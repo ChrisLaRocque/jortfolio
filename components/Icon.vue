@@ -78,12 +78,18 @@
                 <path fill="currentColor" d="M4,10V14H6V11H7V14H8V10H4M9,10V15H11V14H13V10H9M12,11V13H11V11H12M14,10V14H16V11H17V14H18V11H19V14H20V10H14M3,9H21V15H12V16H8V15H3V9Z" />
             </svg>
         </a>
+         <!-- Bulma logo -->
+        <a v-if="name === 'Bulma'" href="https://bulma.io/" title="Bulma website" class="icon">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M11.38 2L6.38 7L5.13 15.75L11.38 22L18.88 17L13.88 12L17.63 8.25L11.38 2Z" />
+</svg>
+        </a>
         <!-- Contentful logo -->
         <a v-if="name === 'Contentful'" href="https://www.contentful.com/" title="Contentful homepage" class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="0.89em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 289"><path d="M87.333 200.777c-15.306-14.406-24.309-34.213-24.309-56.722s9.003-42.316 23.409-56.722c12.605-12.604 12.605-32.412 0-45.017c-12.605-12.605-32.412-12.605-45.017 0C16.206 68.426 0 104.44 0 144.055s16.206 75.629 42.316 101.739c12.605 12.605 32.413 12.605 45.017 0c11.705-12.605 11.705-32.413 0-45.017z" fill="#FAE501"/><path d="M87.333 87.333c14.406-15.306 34.213-24.309 56.722-24.309s42.316 9.003 56.722 23.409c12.604 12.605 32.412 12.605 45.017 0c12.605-12.605 12.605-32.412 0-45.017C219.684 16.206 183.67 0 144.055 0S68.426 16.206 42.316 42.316c-12.605 12.605-12.605 32.413 0 45.017c12.605 11.705 32.413 11.705 45.017 0z" fill="#4FB5E1"/><path d="M200.777 200.777c-14.406 15.305-34.213 24.309-56.722 24.309s-42.316-9.004-56.722-23.41c-12.604-12.604-32.412-12.604-45.017 0c-12.605 12.606-12.605 32.413 0 45.018c26.11 25.21 62.124 41.416 101.739 41.416s75.629-16.206 101.739-42.316c12.605-12.605 12.605-32.413 0-45.017c-12.605-11.705-32.413-11.705-45.017 0z" fill="#F05751"/><circle fill="#0681B6" cx="64.825" cy="64.825" r="31.512"/><circle fill="#CD4739" cx="64.825" cy="223.285" r="31.512"/></svg>
         </a>
         <!-- Netlify logo -->
-        <a v-if="name === 'Netlify'" href="https://www.contentful.com/" title="Contentful homepage" class="icon">
+        <a v-if="name === 'Netlify'" href="https://www.netlify.com/" title="Netlify homepage" class="icon">
             <svg
             xmlns:dc="http://purl.org/dc/elements/1.1/"
             xmlns:cc="http://creativecommons.org/ns#"
