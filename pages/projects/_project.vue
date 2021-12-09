@@ -10,13 +10,18 @@
                 <small style="display: block;">Site</small>
                 <a :href="project.fields.site.fields.link">{{project.fields.site.fields.text}}</a>
             </div> 
-            <div class="box">
-                <small style="display: block;">Tech</small>
-                <div class="columns">
-                  <div v-for="techItem in project.fields.tech" class="column">
+            <div class="box" v-if="project.fields.tech">
+                <small style="display: block;">Tech used</small>
+                <div class="columns is-multiline is-mobile">
+                  <!-- TODO whatever the fuck is happening with the styling -->
+                  <div v-for="techItem in project.fields.tech" class="column is-one-fifth">
                     <Icon :name="techItem" />
                   </div>
                 </div>
+            </div> 
+            <div class="box" v-if="project.fields.relatedProjects">
+              <small style="display: block;">Related projects</small>
+              <NuxtLink v-for="relatedProject in project.fields.relatedProjects" style="display: block;" :key="relatedProject.fields.slug" :to="relatedProject.fields.slug">{{relatedProject.fields.title}}</NuxtLink>
             </div> 
         </div>
   </section>
@@ -44,7 +49,7 @@
           // console.log('entries', entries)
           const {items} = entries
           const entry = items[0]
-          console.log('entry', entry)
+          // console.log('entry', entry)
           return {project: entry};
         })
         .catch(console.error);

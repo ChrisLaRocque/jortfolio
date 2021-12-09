@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark py-2" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <NuxtLink to="/" class="navbar-item is-size-4-touch is-size-4 has-text-weight-bold">
                 Chris LaRocque
@@ -24,7 +24,7 @@
                         <NuxtLink to="/projects/gatsby-v3-migration" class="navbar-item">
                             Gatsby v3 Migration
                         </NuxtLink>
-                        <NuxtLink to="/projects/gatsby-v3-migration" class="navbar-item">
+                        <NuxtLink to="/projects/greenhouse-jobs-board" class="navbar-item">
                             Brightcove Open Positions board
                         </NuxtLink>
                     <!-- <hr class="navbar-divider">
@@ -74,7 +74,7 @@ if (process.client) {
     .navbar {
         .navbar-brand {
             .navbar-item {
-                font-family: 'Vollkorn', serif;
+                font-family: 'Knewave', script;
             }
             .navbar-burger {
                 height: 5rem;

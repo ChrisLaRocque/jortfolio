@@ -26,7 +26,7 @@
                         <footer class="card-footer">
                             <!-- <a href="#" class="card-footer-item">Save</a>
                             <a href="#" class="card-footer-item">Edit</a> -->
-                            <a :href="card.slug" class="card-footer-item">Learn more</a>
+                            <NuxtLink :to="`/projects/${card.fields.slug}`" class="card-footer-item">Learn more</NuxtLink>
                         </footer>
                     </div>
                 </div>
