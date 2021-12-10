@@ -44,6 +44,7 @@
         client.getEntries({
           content_type: 'tech',
           'fields.slug': tech,
+          include: 7
         }),
       ])
         .then(([entries]) => {

@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="content">
-            <h2 class="is-size-4 has-text-weight-bold">{{headline}}</h2>
+            <h2 class="is-size-4 has-text-weight-bold mt-2">{{headline}}</h2>
             <p>{{subHeadline}}</p>
             <div class="columns is-multiline">
                 <div v-for="card in cards" class="column is-one-third">

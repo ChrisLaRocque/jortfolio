@@ -25,7 +25,13 @@
                             Gatsby v3 Migration
                         </NuxtLink>
                         <NuxtLink to="/projects/greenhouse-jobs-board" class="navbar-item">
-                            Brightcove Open Positions board
+                            Greenhouse jobs board
+                        </NuxtLink>
+                        <NuxtLink to="/projects/wifeapedia" class="navbar-item">
+                            Wifeapedia
+                        </NuxtLink>
+                        <NuxtLink to="/projects/larocque-dev" class="navbar-item">
+                            LaRocque.dev
                         </NuxtLink>
                     <!-- <hr class="navbar-divider">
                     <a class="navbar-item" href="mailto:larocque.christopher@gmail.com">
@@ -69,6 +75,34 @@ if (process.client) {
 
     });
 }
+    import { createClient } from '~/plugins/contentful.js';
+
+    const client = createClient();
+    export default {
+        asyncData({ env, params }) {
+            // console.log('params', params)
+            const {project} = params
+        return Promise.all([
+            client.getEntries({
+            content_type: 'chrisProjectPage',
+            limit: 3,
+            }),
+            client.getEntries({
+            content_type: 'tech',
+            limit: 6
+            }),
+        ])
+            .then(([projectEntries, techEntries]) => {
+            // return data that should be available
+            // in the template
+            //   console.log('entries', entries)
+              const {items} = projectEntries
+              const techItems = techEntries.items
+            return {projectCards: items, techCards: techItems};
+            })
+            .catch(console.error);
+        }
+    }
 </script>
 <style lang="scss">
     .navbar {

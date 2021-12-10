@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Hero headline="Hey I'm Chris, I do web stuff." subHeadline="I'm a full-stack web developer/engineer with 6+ years experience building responsive, user-first websites," />
+        <Hero headline="Hey I'm Chris, I do web stuff." subHeadline="I'm a full-stack web developer/engineer building responsive, user-first websites." />
         <Cards headline="Projects" subHeadline="The 3 most recent projects of mine." :cards="projectCards" :more="{to: '/projects', text: 'All projects', is: 'info'}" prepend="/projects/" />
         <Cards headline="Tech" subHeadline="The tech I use and where I've used it" :cards="techCards" :more="{to: '/tech', text: 'All tech', is: 'link'}" prepend="/tech/" :icons=true />
     </div>
