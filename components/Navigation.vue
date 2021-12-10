@@ -13,9 +13,6 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-end">
-                    <NuxtLink to="/" class="navbar-item">
-                        Home
-                    </NuxtLink>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <NuxtLink to="/projects" class="navbar-link">
                         Projects
@@ -37,6 +34,19 @@
                     <a class="navbar-item" href="mailto:larocque.christopher@gmail.com">
                         Report an issue
                     </a> -->
+                    </div>
+                </div>
+                 <div class="navbar-item has-dropdown is-hoverable">
+                    <NuxtLink to="/tech" class="navbar-link">
+                        Tech
+                    </NuxtLink>
+                    <div class="navbar-dropdown">
+                        <NuxtLink to="/tech/react" class="navbar-item">
+                            React
+                        </NuxtLink>
+                        <NuxtLink to="/projects/vue" class="navbar-item">
+                            Vue
+                        </NuxtLink>
                     </div>
                 </div>
                 <NuxtLink to="/me" class="navbar-item">
@@ -75,34 +85,7 @@ if (process.client) {
 
     });
 }
-    import { createClient } from '~/plugins/contentful.js';
-
-    const client = createClient();
-    export default {
-        asyncData({ env, params }) {
-            // console.log('params', params)
-            const {project} = params
-        return Promise.all([
-            client.getEntries({
-            content_type: 'chrisProjectPage',
-            limit: 3,
-            }),
-            client.getEntries({
-            content_type: 'tech',
-            limit: 6
-            }),
-        ])
-            .then(([projectEntries, techEntries]) => {
-            // return data that should be available
-            // in the template
-            //   console.log('entries', entries)
-              const {items} = projectEntries
-              const techItems = techEntries.items
-            return {projectCards: items, techCards: techItems};
-            })
-            .catch(console.error);
-        }
-    }
+    
 </script>
 <style lang="scss">
     .navbar {

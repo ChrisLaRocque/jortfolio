@@ -1,7 +1,7 @@
 <template>
     <div>
         <Hero headline="Projects" colorIs="info"/>
-        <Cards :cards="cards" prepend="/products/" />
+        <Cards :cards="cards" prepend="/projects/" />
     </div>
 </template>
 <script>
