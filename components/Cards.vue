@@ -1,22 +1,23 @@
 <template>
     <section>
         <div class="content">
-            <h2 class="is-size-4 has-text-weight-bold">Projects</h2>
-            <p>Check out some of the work I've done.</p>
-            <div class="columns">
-                <div v-for="card in cards" class="column">
+            <h2 class="is-size-4 has-text-weight-bold">{{headline}}</h2>
+            <p>{{subHeadline}}</p>
+            <div class="columns is-multiline">
+                <div v-for="card in cards" class="column is-one-third">
                     <div class="card">
                         <header class="card-header">
                             <p class="card-header-title">
                             {{card.fields.title}}
                             </p>
+                            <Icon v-if="icons" :name="card.fields.title"/>
                             <!-- <button class="card-header-icon" aria-label="more options">
                             <span class="icon">
                                 <i class="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
                             </button> -->
                         </header>
-                        <div class="card-content">
+                        <div class="card-content" v-if="card.fields.description">
                             <div class="content">
                             {{card.fields.description}}
                             <!-- <br> -->
@@ -26,11 +27,15 @@
                         <footer class="card-footer">
                             <!-- <a href="#" class="card-footer-item">Save</a>
                             <a href="#" class="card-footer-item">Edit</a> -->
-                            <NuxtLink :to="`/projects/${card.fields.slug}`" class="card-footer-item">Learn more</NuxtLink>
+                            <NuxtLink :to="`${prepend || ''}${card.fields.slug}`" class="card-footer-item">{{ctaText || 'Learn more'}}</NuxtLink>
                         </footer>
                     </div>
                 </div>
             </div>
+            <NuxtLink v-if="more" :to="more.to" class="buttons is-right">
+              <button :class="`button is-${more.is || 'info'}`">{{more.text || 'See all'}}</button>
+            </NuxtLink>
+
         </div>
     </section>
 </template>
@@ -40,10 +45,19 @@
     .card-header-title {
         color: #fff;
     }
+    .icon {
+        color: white;
+        margin: 10px 10px 0 0;
+        svg {
+            transform: scale(1.5);
+            transform-origin: top right;
+        }
+    }
 }
+
 </style>
 <script>
 export default {
-    props: ['cards']
+    props: ['cards', 'headline', 'subHeadline', 'more', 'prepend', 'icons', 'ctaText']
 }
 </script>

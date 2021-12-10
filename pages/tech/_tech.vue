@@ -1,16 +1,16 @@
 <template>
   <section class="columns">
         <div class="column is-two-thirds">
-            <h1 class="is-size-3 is-size-4-touch is-capitalized has-text-weight-bold">{{ project.fields.title }}</h1>
-            <div v-if="project.fields.body" v-html="$md.render(project.fields.body)" class="content"></div>
+            <h1 class="is-size-3 is-size-4-touch is-capitalized has-text-weight-bold">{{ tech.fields.name }}</h1>
+            <div class="content">{{tech.fields.description}}</div>
         </div>
         <div class="column">
             <strong style="display: block;" class="has-text-grey-darker mt-4 mb-2">Related links</strong>
-            <div class="box" v-if="project.fields.site">
-                <small style="display: block;">Site</small>
-                <a :href="project.fields.site.fields.link">{{project.fields.site.fields.text}}</a>
+            <div class="box" v-if="tech.fields.homepage">
+                <small style="display: block;">Homepage</small>
+                <a :href="tech.fields.homepage.fields.link">{{tech.fields.homepage.fields.text}}</a>
             </div> 
-            <div class="box" v-if="project.fields.tech">
+            <!-- <div class="box" v-if="project.fields.tech">
                 <small style="display: block;">Tech used</small>
                 <div class="columns is-multiline is-mobile mt-2">
                   <div v-for="techItem in project.fields.tech" class="column is-one-fifth">
@@ -20,12 +20,12 @@
             </div> 
             <div class="box" v-if="project.fields.githubLink">
                 <small style="display: block;">Github for project</small>
-                <a :href="project.fields.githubLink" style="display: block;" class="mt-2"><Icon name="Github" /></a>
+                <a :href="project.fields.githubLink"><Icon name="Github" /></a>
             </div> 
             <div class="box" v-if="project.fields.relatedProjects">
               <small style="display: block;">Related projects</small>
               <NuxtLink v-for="relatedProject in project.fields.relatedProjects" style="display: block;" :key="relatedProject.fields.slug" :to="relatedProject.fields.slug">{{relatedProject.fields.title}}</NuxtLink>
-            </div> 
+            </div>  -->
         </div>
   </section>
 </template>
@@ -39,11 +39,11 @@
     // `env` is available in the context object
     asyncData({ env, params }) {
         // console.log('params', params)
-        const {project} = params
+        const {tech} = params
       return Promise.all([
         client.getEntries({
-          content_type: 'chrisProjectPage',
-          'fields.slug': project,
+          content_type: 'tech',
+          'fields.slug': tech,
         }),
       ])
         .then(([entries]) => {
@@ -53,18 +53,18 @@
           const {items} = entries
           const entry = items[0]
           // console.log('entry', entry)
-          return {project: entry};
+          return {tech: entry};
         })
         .catch(console.error);
     },
     head() {
       return {
-        title: this.project.fields.title,
+        title: this.tech.fields.title,
         meta: [
           {
             hid: 'description',
             name: 'description',
-            content: this.project.fields.description
+            content: this.tech.fields.description
           }
         ],
       }

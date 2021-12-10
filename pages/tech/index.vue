@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Hero headline="Projects" colorIs="info"/>
-        <Cards :cards="cards" prepend="/products/" />
+        <Hero headline="Tech" colorIs="link"/>
+        <Cards :cards="cards" ctaText="Related projects" prepend="/tech/"/>
     </div>
 </template>
 <script>
@@ -14,7 +14,7 @@
             const {project} = params
         return Promise.all([
             client.getEntries({
-            content_type: 'chrisProjectPage',
+            content_type: 'tech',
             }),
         ])
           .then(([entries]) => {
