@@ -8,7 +8,7 @@
             <strong style="display: block;" class="has-text-grey-darker mt-4 mb-2">Related links</strong>
             <div class="box" v-if="tech.fields.homepage">
                 <small style="display: block;">Homepage</small>
-                <a :href="tech.fields.homepage.fields.link">{{tech.fields.homepage.fields.text}}</a>
+                <a :href="tech.fields.homepage.fields.link"><Icon :name="tech.fields.name" />&nbsp;{{tech.fields.homepage.fields.text}}</a>
             </div> 
             <!-- <div class="box" v-if="project.fields.tech">
                 <small style="display: block;">Tech used</small>
@@ -21,11 +21,11 @@
             <div class="box" v-if="project.fields.githubLink">
                 <small style="display: block;">Github for project</small>
                 <a :href="project.fields.githubLink"><Icon name="Github" /></a>
-            </div> 
-            <div class="box" v-if="project.fields.relatedProjects">
+            </div> -->
+            <div class="box" v-if="related.length > 0">
               <small style="display: block;">Related projects</small>
-              <NuxtLink v-for="relatedProject in project.fields.relatedProjects" style="display: block;" :key="relatedProject.fields.slug" :to="relatedProject.fields.slug">{{relatedProject.fields.title}}</NuxtLink>
-            </div>  -->
+              <NuxtLink v-for="project in related" style="display: block;" :key="project.fields.slug" :to="`/projects/${project.fields.slug}`">{{project.fields.title}}</NuxtLink>
+            </div> 
         </div>
   </section>
 </template>
@@ -44,17 +44,20 @@
         client.getEntries({
           content_type: 'tech',
           'fields.slug': tech,
-          include: 7
+        }),
+        client.getEntries({
+          content_type: 'chrisProjectPage',
         }),
       ])
-        .then(([entries]) => {
+        .then(([entries, projectEntries]) => {
           // return data that should be available
           // in the template
-          // console.log('entries', entries)
+          // console.log('entry', entry)
           const {items} = entries
           const entry = items[0]
-          // console.log('entry', entry)
-          return {tech: entry};
+          const relatedProjects = projectEntries.items.filter(item => item.fields.tech && item.fields.tech.filter(techItem => techItem.fields.slug === tech).length > 0)
+
+          return {tech: entry, related: relatedProjects};
         })
         .catch(console.error);
     },

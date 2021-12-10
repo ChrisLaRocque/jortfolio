@@ -13,9 +13,7 @@
             <div class="box" v-if="project.fields.tech">
                 <small style="display: block;">Tech used</small>
                 <div class="columns is-multiline is-mobile mt-2">
-                  <div v-for="techItem in project.fields.tech" class="column is-one-fifth">
-                    <Icon :name="techItem.fields.name" />
-                  </div>
+                  <NuxtLink v-for="techItem in project.fields.tech" class="column is-one-fifth" :to="`/tech/${techItem.fields.slug}`"><Icon :name="techItem.fields.name" /></NuxtLink>
                 </div>
             </div> 
             <div class="box" v-if="project.fields.githubLink">
