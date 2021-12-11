@@ -1,32 +1,34 @@
 <template>
-  <section class="columns">
+  <section>
+    <div class="columns">
         <div class="column is-two-thirds">
             <h1 class="is-size-3 is-size-4-touch is-capitalized has-text-weight-bold">{{ tech.fields.name }}</h1>
-            <div class="content">{{tech.fields.description}}</div>
+            <div class="content">
+              <Description :homepageFields="tech.fields.homepage.fields" />
+              {{tech.fields.description}}
+              </div>
+            <div v-if="tech.fields.experience" class="content">
+              <h2>{{`My experience with ${tech.fields.name}`}}</h2>
+              {{tech.fields.experience}}
+            </div>
         </div>
-        <div class="column">
-            <strong style="display: block;" class="has-text-grey-darker mt-4 mb-2">Related links</strong>
-            <div class="box" v-if="tech.fields.homepage">
-                <small style="display: block;">Homepage</small>
+        <div class="column is-one-third">
+            <strong style="display: block;" class="has-text-grey-darker mt-4 mb-2">{{`Related links for ${tech.fields.name}`}}</strong>
+            <div class="box">
+                <small style="display: block;">{{`${tech.fields.name} homepage`}}</small>
                 <a :href="tech.fields.homepage.fields.link"><Icon :name="tech.fields.name" />&nbsp;{{tech.fields.homepage.fields.text}}</a>
             </div> 
-            <!-- <div class="box" v-if="project.fields.tech">
-                <small style="display: block;">Tech used</small>
-                <div class="columns is-multiline is-mobile mt-2">
-                  <div v-for="techItem in project.fields.tech" class="column is-one-fifth">
-                    <Icon :name="techItem.fields.name" />
-                  </div>
-                </div>
-            </div> 
-            <div class="box" v-if="project.fields.githubLink">
-                <small style="display: block;">Github for project</small>
-                <a :href="project.fields.githubLink"><Icon name="Github" /></a>
-            </div> -->
             <div class="box" v-if="related.length > 0">
-              <small style="display: block;">Related projects</small>
+              <small style="display: block;">{{`Projects where I've used ${tech.fields.name}`}}</small>
               <NuxtLink v-for="project in related" style="display: block;" :key="project.fields.slug" :to="`/projects/${project.fields.slug}`">{{project.fields.title}}</NuxtLink>
             </div> 
         </div>
+      </div>
+      <div class="columns">
+        <div class="column is-full">
+          <NuxtLink to="/tech"><Icon name="Arrow left" /> All tech</NuxtLink>
+        </div>
+      </div>
   </section>
 </template>
 

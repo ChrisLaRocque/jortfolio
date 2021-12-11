@@ -1,7 +1,7 @@
 <template>
     <div>
         <Hero headline="Tech" colorIs="link"/>
-        <Cards :cards="cards" ctaText="Related projects" prepend="/tech/"/>
+        <Cards :cards="cards" ctaText="What I've made with" prepend="/tech/" :icons=true />
     </div>
 </template>
 <script>
