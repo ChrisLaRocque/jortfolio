@@ -9,9 +9,8 @@ import { createClient } from "~/plugins/contentful.js";
 
 const client = createClient();
 export default {
-  asyncData({ env, params }) {
+  asyncData() {
     // console.log('params', params)
-    const { project } = params;
     return Promise.all([
       client.getEntries({
         content_type: "chrisProjectPage",

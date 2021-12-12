@@ -47,6 +47,10 @@ export default {
   markdownit: {
     runtime: true, // Support `$md()`
     html: true,
+    use: [
+      "markdown-it-anchor",
+      ["markdown-it-toc-done-right", { containerId: "markdown-nav" }],
+    ],
   },
   target: "static",
   ssr: false,

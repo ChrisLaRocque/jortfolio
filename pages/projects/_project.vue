@@ -48,6 +48,16 @@
           >{{ relatedProject.fields.title }}</NuxtLink
         >
       </div>
+      <div
+        id="there-has-to-be-a-better-way"
+        class="box"
+        style="visibility: hidden"
+      >
+        <small style="display: block">Table of contents</small>
+        <div class="content">
+          <nav id="nav-side" class="table-of-contents"></nav>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -58,9 +68,7 @@ import { createClient } from "~/plugins/contentful.js";
 const client = createClient();
 
 export default {
-  // `env` is available in the context object
-  asyncData({ env, params }) {
-    // console.log('params', params)
+  asyncData({ params }) {
     const { project } = params;
     return Promise.all([
       client.getEntries({
@@ -91,5 +99,28 @@ export default {
       ],
     };
   },
+  mounted() {
+    if (process.client) {
+      const markdownNav = document.getElementById("markdown-nav");
+      if (markdownNav && markdownNav.innerHTML !== "") {
+        const navWrapper = document.getElementById(
+          "there-has-to-be-a-better-way"
+        );
+        const newNav = document.getElementById("nav-side");
+        newNav.innerHTML = markdownNav.innerHTML;
+        navWrapper.style.visibility = "visible";
+        markdownNav.style.display = "none";
+      } else {
+        console.log("If you're seeing this I messed up.");
+      }
+    }
+  },
 };
 </script>
+<style lang="scss">
+#nav-side {
+  ol {
+    margin-top: 0;
+  }
+}
+</style>

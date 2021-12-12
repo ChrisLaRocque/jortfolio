@@ -4,7 +4,11 @@
       <h2 class="is-size-4 has-text-weight-bold mt-2">{{ headline }}</h2>
       <p>{{ subHeadline }}</p>
       <div class="columns is-multiline">
-        <div v-for="card in cards" class="column is-one-third">
+        <div
+          v-for="card in cards"
+          :key="card.fields.slug"
+          class="column is-one-third"
+        >
           <div class="card">
             <header class="card-header">
               <p class="card-header-title">
@@ -48,6 +52,19 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  props: {
+    cards: { type: Array, default: null },
+    headline: { type: String, default: null },
+    subHeadline: { type: String, default: null },
+    more: { type: Object, default: null },
+    prepend: { type: String, default: null },
+    icons: Boolean,
+    ctaText: { type: String, default: null },
+  },
+};
+</script>
 <style lang="scss">
 .card-header {
   background: black;
@@ -64,16 +81,3 @@
   }
 }
 </style>
-<script>
-export default {
-  props: [
-    "cards",
-    "headline",
-    "subHeadline",
-    "more",
-    "prepend",
-    "icons",
-    "ctaText",
-  ],
-};
-</script>
