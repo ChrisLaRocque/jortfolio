@@ -1,6 +1,6 @@
 <template>
-  <section class="columns">
-    <div class="column is-two-thirds">
+  <section id="page-wrapper" class="columns is-desktop">
+    <div class="column is-two-thirds is-desktop">
       <h1 class="is-size-3 is-size-4-touch is-capitalized has-text-weight-bold">
         {{ project.fields.title }}
       </h1>
@@ -121,6 +121,13 @@ export default {
 #nav-side {
   ol {
     margin-top: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #page-wrapper {
+    &.columns {
+      margin-right: 0 !important;
+    }
   }
 }
 </style>
