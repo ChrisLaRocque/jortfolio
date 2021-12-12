@@ -11,7 +11,11 @@
           <a
             href="mailto:larocque.christopher@gmail.com"
             class="button is-black"
-            >Email</a
+            ><Icon name="Envelope" />&nbsp;<span
+              style="display: block"
+              class="ml-1"
+              >Email</span
+            ></a
           >
           <a href="https://github.com/ChrisLaRocque" class="button is-black"
             ><Icon name="Github" />&nbsp;<span
