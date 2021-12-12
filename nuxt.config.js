@@ -21,6 +21,11 @@ export default {
         content:
           "Chris LaRocque is a web developer from Boston, MA. He specializes in tactical agile development aimed at delivering user-centric software at scale and at speed.",
       },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "https://www.larocque.dev/headshot.jpeg",
+      },
     ],
     link: [
       {
