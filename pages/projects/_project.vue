@@ -68,6 +68,7 @@
       </div>
       <button class="modal-close is-large" aria-label="close"></button>
     </div>
+    <Warning v-if="project.fields.inProgress" />
   </section>
 </template>
 
