@@ -13,8 +13,7 @@
 <script>
 export default {
   methods: {
-    close(event) {
-      console.log("clicked", event);
+    close() {
       this.$refs.inProgress.style.display = "none";
     },
   },
