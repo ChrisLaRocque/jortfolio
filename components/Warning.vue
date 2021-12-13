@@ -26,5 +26,11 @@ export default {
   max-width: 20vw;
   bottom: 1.5rem;
   right: 1.5rem;
+  @media only screen and (max-width: 768px) {
+    max-width: 95vw;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    position: sticky;
+  }
 }
 </style>
