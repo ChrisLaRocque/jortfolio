@@ -7,7 +7,7 @@
       <div
         v-if="project.fields.body"
         class="content"
-        v-html="$md.render(project.fields.body)"
+        v-html="$md.render(project.fields.body + '\n${toc}')"
       ></div>
     </div>
     <div class="column">
@@ -58,6 +58,15 @@
           <nav id="nav-side" class="table-of-contents"></nav>
         </div>
       </div>
+    </div>
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <p class="image">
+          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="" />
+        </p>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
     </div>
   </section>
 </template>
@@ -113,6 +122,26 @@ export default {
       } else {
         console.log("If you're seeing this I messed up.");
       }
+      const pageWrapper = document.getElementById("page-wrapper");
+      if (pageWrapper) {
+        const pageImages = pageWrapper.querySelectorAll("img");
+        if (pageImages.length > 0) {
+          const modal = pageWrapper.querySelector(".modal");
+          const modalImage = modal.querySelector(".image").querySelector("img");
+          // Each image gets an event listener
+          pageImages.forEach((image) =>
+            image.addEventListener("click", (e) => {
+              modal.classList.toggle("is-active");
+              modalImage.src = image.src;
+            })
+          );
+          // Close button
+          const closeButton = modal.querySelector(".modal-close");
+          closeButton.addEventListener("click", (e) => {
+            modal.classList.toggle("is-active");
+          });
+        }
+      }
     }
   },
 };
@@ -127,6 +156,25 @@ export default {
   #page-wrapper {
     &.columns {
       margin-right: 0 !important;
+    }
+  }
+  .content {
+    table {
+      thead,
+      tbody {
+        display: block;
+        tr {
+          display: flex;
+          justify-content: space-between;
+          align-items: stretch;
+          td {
+            &:nth-of-type(2) {
+              text-align: right;
+              padding-right: 0;
+            }
+          }
+        }
+      }
     }
   }
 }

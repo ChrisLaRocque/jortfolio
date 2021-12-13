@@ -7,3 +7,9 @@
     // color: white;
 }
 html { scroll-behavior: smooth; }
+.modal-content {
+    width: calc(100vw - 20vw);
+    @media only screen and (max-width: 768px) {
+        width: calc(100vw - 10vw);
+    }
+}

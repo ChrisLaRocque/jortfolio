@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <Navigation />
-        <Nuxt />
-        <Footer />
-    </div>
+  <div>
+    <Navigation />
+    <Nuxt />
+    <Footer />
+  </div>
 </template>
 <style lang="scss">
-    section {
-        padding: 15px 30px;
-    }
+section {
+  padding: 15px 30px;
+}
 </style>

@@ -34,14 +34,23 @@
             <NuxtLink to="/projects/gatsby-v3-migration" class="navbar-item">
               Gatsby v3 Migration
             </NuxtLink>
+            <NuxtLink to="/projects/larocque-dev" class="navbar-item">
+              LaRocque.dev
+            </NuxtLink>
             <NuxtLink to="/projects/greenhouse-jobs-board" class="navbar-item">
               Greenhouse jobs board
+            </NuxtLink>
+            <NuxtLink
+              to="/projects/lambda-sitemap-generator"
+              class="navbar-item"
+            >
+              Lambda sitemap generator
             </NuxtLink>
             <NuxtLink to="/projects/wifeapedia" class="navbar-item">
               Wifeapedia
             </NuxtLink>
-            <NuxtLink to="/projects/larocque-dev" class="navbar-item">
-              LaRocque.dev
+            <NuxtLink to="/projects/brightcove" class="navbar-item">
+             Brightcove
             </NuxtLink>
             <!-- <hr class="navbar-divider">
                     <a class="navbar-item" href="mailto:larocque.christopher@gmail.com">
