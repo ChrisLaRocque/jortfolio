@@ -48,7 +48,7 @@ export default {
       { rel: "manifest", href: "/site.webmanifest" },
     ],
   },
-  modules: ["@nuxtjs/markdownit"],
+  modules: ["@nuxtjs/markdownit", "@nuxtjs/google-gtag"],
   markdownit: {
     runtime: true, // Support `$md()`
     html: true,
@@ -61,5 +61,9 @@ export default {
   ssr: false,
   generate: {
     fallback: true,
+  },
+  "google-gtag": {
+    id: "G-YH5X1FXFKW",
+    debug: true,
   },
 };

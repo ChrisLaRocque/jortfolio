@@ -1,14 +1,14 @@
 <template>
   <AisInstantSearch :search-client="searchClient" index-name="larocque.dev">
-    <AisSearchBox />
+    <AisSearchBox class="mt-3" />
     <AisHits>
       <template #item="{ item }">
         <div class="card">
           <div class="card-content">
-            <p class="subtitle">
+            <p class="subtitle has-text-grey is-size-5">
               {{ contentTypeLookup[item.sys.contentType.sys.id] }}
             </p>
-            <p class="title">
+            <p class="title has-text-weight-bold is-size-4">
               {{ item.fields.title["en-US"] }}
             </p>
             <div class="content">
@@ -24,7 +24,11 @@
                 )
               "
               class="card-footer-item"
-              >{{ `Learn more about ${item.fields.title["en-US"]}` }}</NuxtLink
+              >{{
+                `${contentTypeLookup[item.sys.contentType.sys.id]} page for ${
+                  item.fields.title["en-US"]
+                }`
+              }}</NuxtLink
             >
           </footer>
         </div>
@@ -71,7 +75,18 @@ export default {
 };
 </script>
 <style lang="scss">
+.ais-Hits-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
 .ais-Hits-item {
   box-shadow: none;
+  max-width: calc(100% / 3);
+}
+@media only screen and (max-width: 768px) {
+  .ais-Hits-item {
+    max-width: 100%;
+  }
 }
 </style>

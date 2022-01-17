@@ -50,7 +50,7 @@
               Wifeapedia
             </NuxtLink>
             <NuxtLink to="/projects/brightcove" class="navbar-item">
-             Brightcove
+              Brightcove
             </NuxtLink>
             <!-- <hr class="navbar-divider">
                     <a class="navbar-item" href="mailto:larocque.christopher@gmail.com">
@@ -66,6 +66,9 @@
           </div>
         </div>
         <NuxtLink to="/me" class="navbar-item"> About + Contact </NuxtLink>
+        <NuxtLink to="/search" class="navbar-item"
+          ><Icon name="Search"
+        /></NuxtLink>
       </div>
     </div>
   </nav>
