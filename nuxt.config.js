@@ -1,4 +1,5 @@
 const config = require("./.contentful.json");
+const contentful = require("contentful");
 
 export default {
   env: {
@@ -61,6 +62,30 @@ export default {
   ssr: false,
   generate: {
     fallback: true,
+    routes() {
+      return contentful
+        .createClient({
+          space: process.env.CTF_SPACE_ID,
+          accessToken: process.env.CTF_CDA_ACCESS_TOKEN,
+        })
+        .getEntries()
+        .then((res) => {
+          return res.items
+            .filter(
+              (item) =>
+                item.sys.contentType.sys.id === "chrisProjectPage" ||
+                item.sys.contentType.sys.id === "tech"
+            )
+            .map((item) => {
+              const type = item.sys.contentType.sys.id;
+              const routes = {
+                chrisProjectPage: `/projects/${item.fields.slug}`,
+                tech: `/tech/${item.fields.slug}`,
+              };
+              return { route: routes[type], payload: item };
+            });
+        });
+    },
   },
   "google-gtag": {
     id: "G-YH5X1FXFKW",

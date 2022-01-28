@@ -59,7 +59,10 @@ const client = createClient();
 
 export default {
   // `env` is available in the context object
-  asyncData({ params }) {
+  asyncData({ params, payload }) {
+    if (payload) {
+      return { tech: payload };
+    }
     // console.log('params', params)
     const { tech } = params;
     return Promise.all([

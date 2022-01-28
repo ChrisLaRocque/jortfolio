@@ -78,7 +78,10 @@ import { createClient } from "~/plugins/contentful.js";
 const client = createClient();
 
 export default {
-  asyncData({ params }) {
+  asyncData({ params, payload }) {
+    if (payload) {
+      return { project: payload };
+    }
     const { project } = params;
     return Promise.all([
       client.getEntries({
