@@ -36,7 +36,7 @@
         </div>
       </div>
       <NuxtLink v-if="more" :to="more.to" class="buttons is-right">
-        <button :class="`button is-${more.is || 'info'}`">
+        <button :class="`button is-${more.is || 'black'}`">
           {{ more.text || "See all" }}
         </button>
       </NuxtLink>

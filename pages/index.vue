@@ -8,7 +8,7 @@
       headline="Projects"
       sub-headline="The 3 most recent projects of mine."
       :cards="projectCards"
-      :more="{ to: '/projects', text: 'All projects', is: 'info' }"
+      :more="{ to: '/projects', text: 'All projects' }"
       prepend="/projects/"
       cta-text="Building "
     />
@@ -16,7 +16,7 @@
       headline="Tech"
       sub-headline="The tech I use and where I've used it"
       :cards="techCards"
-      :more="{ to: '/tech', text: 'All tech', is: 'link' }"
+      :more="{ to: '/tech', text: 'All tech' }"
       prepend="/tech/"
       :icons="true"
       cta-text="What I've built with "
