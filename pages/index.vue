@@ -4,6 +4,7 @@
       headline="Hey I'm Chris, I do web stuff."
       sub-headline="I'm a full-stack web developer/engineer building responsive, user-first websites. Check out the things I've built or the tech I've used to build them below."
     />
+    <HomeBanner />
     <Cards
       headline="Projects"
       sub-headline="The 3 most recent projects of mine."
