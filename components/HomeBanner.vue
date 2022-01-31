@@ -1,5 +1,7 @@
 <template>
-  <section class="is-flex is-justify-content-flex-end is-align-items-center">
+  <section
+    class="is-flex is-justify-content-flex-end is-align-items-center is-hidden-mobile"
+  >
     <div class="is-flex is-align-items-center px-4">
       <Icon name="Nuxt" style="margin-right: 5px" />
       <p style="padding-right: 10px; line-height: 1.5rem; font-weight: bold">
