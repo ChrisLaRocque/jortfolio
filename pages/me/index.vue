@@ -29,7 +29,7 @@
     </div>
     <div class="column is-one-third">
       <figure class="image">
-        <img src="~/assets/img/new-headshot.jpg" class="is-rounded" alt="" />
+        <img src="~/assets/img/headshot-bright.jpg" class="is-rounded" alt="" />
       </figure>
     </div>
   </div>
