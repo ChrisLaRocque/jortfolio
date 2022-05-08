@@ -44,7 +44,7 @@
           v-for="relatedProject in project.fields.relatedProjects"
           :key="relatedProject.fields.slug"
           style="display: block"
-          :to="relatedProject.fields.slug"
+          :to="`/projects/${relatedProject.fields.slug}`"
           >{{ relatedProject.fields.title }}</NuxtLink
         >
       </div>
