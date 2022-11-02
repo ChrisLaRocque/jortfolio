@@ -73,6 +73,7 @@
 </template>
 
 <script>
+import "highlight.js/styles/github-dark.css";
 import { createClient } from "~/plugins/contentful.js";
 
 const client = createClient();

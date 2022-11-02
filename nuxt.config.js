@@ -56,6 +56,7 @@ export default {
     use: [
       "markdown-it-anchor",
       ["markdown-it-toc-done-right", { containerId: "markdown-nav" }],
+      "markdown-it-highlightjs",
     ],
   },
   target: "static",
