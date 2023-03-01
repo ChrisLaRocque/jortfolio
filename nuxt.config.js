@@ -91,8 +91,8 @@ export default {
 				});
 		},
 	},
-	"google-gtag": {
-		id: "G-YH5X1FXFKW",
-		debug: true,
-	},
+	// "google-gtag": {
+	// 	id: "G-YH5X1FXFKW",
+	// 	debug: true,
+	// },
 };
